@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {Text, SafeAreaView, StyleSheet} from 'react-native';
-import {HomeScreen} from './src/screens';
+import {HomeScreen} from './screens/HomeScreen';
+import {SunIcon} from './assets/svg';
 
 const SplashScreen = () => (
   <SafeAreaView style={styles.container}>
-    <Text style={styles.text}>Bienvenido a la App</Text>
+    <SunIcon width={120} height={120} />
+    <Text style={styles.text}>Bienvenido a ClimaYa</Text>
   </SafeAreaView>
 );
 
