@@ -12,6 +12,7 @@ const schema = yup.object().shape({
 export const useActions = () => {
   const [weatherData, setWeatherData] = useState<WeatherResponse>();
   const [loading, setLoading] = useState(false);
+  const [erroMessage, setErroMessage] = useState('');
   const {
     control,
     getValues,
@@ -31,11 +32,21 @@ export const useActions = () => {
       const data = await getWeatherByCity(city);
       setWeatherData(data);
       setLoading(false);
+      setErroMessage('');
     } catch (error) {
+      setErroMessage('No se encontraron datos para la ciudad ingresada');
       setLoading(false);
-      console.log('@@@@@@@@@@@@error', error);
     }
   };
 
-  return {control, errors, isDirty, isValid, weatherData, loading, fetchData};
+  return {
+    control,
+    errors,
+    isDirty,
+    isValid,
+    weatherData,
+    loading,
+    erroMessage,
+    fetchData,
+  };
 };

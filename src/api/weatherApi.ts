@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosError} from 'axios';
 import {WeatherResponse} from './interface/weather.interface';
 
 const API_KEY = 'a21a809bce473f14879b600dc2b7bbf2';
@@ -18,7 +18,21 @@ export const getWeatherByCity = async (city: string) => {
     });
     return response.data;
   } catch (error) {
-    console.error('Error al obtener el clima:', error);
-    throw new Error('No se pudo obtener la información del clima');
+    if (axios.isAxiosError(error)) {
+      const axiosError = error as AxiosError<{message: string}>;
+
+      if (axiosError.response) {
+        const {status, data} = axiosError.response;
+
+        if (status === 404) {
+          throw new Error(
+            'Ciudad no encontrada. Verifica el nombre e intenta nuevamente.',
+          );
+        }
+
+        throw new Error(data?.message || 'Error al obtener el clima.');
+      }
+    }
+    throw new Error('Ocurrió un error inesperado. Intenta nuevamente.');
   }
 };
