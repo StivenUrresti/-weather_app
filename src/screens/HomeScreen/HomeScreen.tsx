@@ -1,8 +1,7 @@
-import {SafeAreaView, StyleSheet, ActivityIndicator} from 'react-native';
+import {SafeAreaView, StyleSheet, ActivityIndicator, View} from 'react-native';
 import React from 'react';
 import {TextInputAnimated} from '../../components';
 import {useActions} from './useActions';
-import {View} from 'react-native-ui-lib';
 import {Button} from '../../components/Button';
 import {WeatherCardFragment} from './fragments';
 import {Text} from '@react-native-material/core';
@@ -24,7 +23,7 @@ export const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View flex padding-16>
+      <View style={styles.content}>
         <Text style={styles.text}>¿De qué ciudad quieres saber el clima?</Text>
 
         <TextInputAnimated
@@ -86,6 +85,10 @@ const styles = StyleSheet.create({
   },
   button: {
     marginVertical: 20,
+  },
+  content: {
+    flex: 1,
+    padding: 16,
   },
 });
 

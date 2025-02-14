@@ -1,11 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 const React = require('react');
 import {
   AnimatableNumericValue,
   StyleProp,
   StyleSheet,
+  TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-ui-lib';
 import {Text} from '@react-native-material/core';
 
 interface Props {
@@ -38,10 +39,8 @@ export const Button = (props: Props) => {
   } = props;
   return (
     <TouchableOpacity
-      row
-      center
+      testID="button"
       onPress={onPress}
-      backgroundColor={disabled ? '#F1F1F1' : backgroundColor}
       disabled={disabled}
       style={[
         style,
@@ -50,6 +49,8 @@ export const Button = (props: Props) => {
           padding,
         },
         fullWidth && styles.container,
+        styles.button,
+        {backgroundColor: disabled ? '#F1F1F1' : backgroundColor},
       ]}>
       {iconLeft}
       <Text
@@ -76,5 +77,10 @@ const styles = StyleSheet.create({
 
   iconRight: {
     marginLeft: 4,
+  },
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

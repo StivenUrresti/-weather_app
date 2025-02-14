@@ -11,18 +11,17 @@ const SplashScreen = () => (
 );
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
+    const timer = setTimeout(() => setShowSplash(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  return isLoading ? <SplashScreen /> : <HomeScreen />;
+  return showSplash ? <SplashScreen /> : <HomeScreen />;
 };
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
@@ -35,5 +34,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default App;

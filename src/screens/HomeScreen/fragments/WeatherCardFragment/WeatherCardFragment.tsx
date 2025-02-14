@@ -13,7 +13,7 @@ export const WeatherCardFragment = ({data}: Props) => {
   return (
     <View style={styles.card}>
       <Text style={styles.city}>
-        {data.name}, {data.sys.country}
+        {data.name}, {data.sys?.country ?? 'Desconocido'}
       </Text>
       <Image source={{uri: weatherIconUrl}} style={styles.weatherIcon} />
       <Text style={styles.temperature}>{temperature}°C</Text>

@@ -94,6 +94,7 @@ export const TextInputAnimated = ({
           </Animated.Text>
         </View>
         <TextInput
+          testID="text-input"
           style={[styles.input, multiline && styles.inputArea]}
           autoComplete={autoComplete}
           value={field.value}
