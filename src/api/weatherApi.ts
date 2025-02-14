@@ -15,14 +15,8 @@ export const getWeatherByCity = async (city: string) => {
       params: {q: city, lang: 'es'},
     });
 
-    if (response.status !== 200) {
-      throw new Error('Error al obtener los datos.');
-    }
-
     return response.data;
   } catch (error: any) {
-    console.error('Error en getWeatherByCity:', error);
-
     if (axios.isAxiosError(error)) {
       if (error.response) {
         if (error.response.status === 404) {
