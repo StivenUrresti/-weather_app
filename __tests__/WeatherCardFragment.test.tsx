@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react-native';
+import {fireEvent, render, screen} from '@testing-library/react-native';
 import {WeatherResponse} from '../src/api/interface/weather.interface';
 import {WeatherCardFragment} from '../src/screens/HomeScreen/fragments';
 
@@ -40,6 +40,21 @@ const mockWeatherData: WeatherResponse = {
   cod: 0,
 };
 
+jest.mock('react-native/Libraries/Animated/Animated', () => {
+  const ActualAnimated = jest.requireActual(
+    'react-native/Libraries/Animated/Animated',
+  );
+  return {
+    ...ActualAnimated,
+    timing: (value: any, config: any) => ({
+      start: (callback?: () => void) => {
+        value.setValue(config.toValue);
+        callback && callback();
+      },
+    }),
+  };
+});
+
 describe('WeatherCardFragment', () => {
   it('debe renderizar correctamente el nombre de la ciudad y la descripción del clima', () => {
     render(<WeatherCardFragment data={mockWeatherData} />);
@@ -57,5 +72,31 @@ describe('WeatherCardFragment', () => {
     expect(screen.getByText(/Presión:/i)).toBeTruthy();
     expect(screen.getByText(/Nubosidad:/i)).toBeTruthy();
     expect(screen.getByText(/Atardecer:/i)).toBeTruthy();
+  });
+
+  it('debe mostrar la flecha al hacer scroll hacia arriba', () => {
+    const {getByTestId} = render(
+      <WeatherCardFragment data={mockWeatherData} />,
+    );
+    const scrollView = getByTestId('weather-scrollview');
+
+    fireEvent.scroll(scrollView, {
+      nativeEvent: {
+        contentOffset: {y: 30},
+        contentSize: {height: 500, width: 300},
+        layoutMeasurement: {height: 100, width: 300},
+      },
+    });
+
+    fireEvent.scroll(scrollView, {
+      nativeEvent: {
+        contentOffset: {y: 10},
+        contentSize: {height: 500, width: 300},
+        layoutMeasurement: {height: 100, width: 300},
+      },
+    });
+
+    const arrow = getByTestId('down-arrow');
+    expect(arrow.props.style.opacity).toBe(1);
   });
 });
