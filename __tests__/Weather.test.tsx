@@ -12,19 +12,20 @@ describe('getWeatherByCity', () => {
   it('debe devolver los datos del clima si la ciudad existe', async () => {
     mock.onGet('/').reply(200, {
       name: 'Bogota',
-      weather: [{description: 'nubes dispersas'}],
-      main: {
-        temp: 290.88,
-      },
+      main: {temp: 20, feels_like: 18, humidity: 80, pressure: 1012},
+      weather: [{description: 'muy nuboso', icon: '04d'}],
+      wind: {speed: 3, deg: 120},
+      sys: {country: 'CO'},
+      clouds: {all: 75},
     });
 
     const data = await getWeatherByCity('Bogotá');
 
     expect(data).toEqual(
       expect.objectContaining({
-        name: 'Bogota',
+        name: expect.stringContaining('Bogota'),
         weather: expect.arrayContaining([
-          expect.objectContaining({description: 'nubes dispersas'}),
+          expect.objectContaining({description: 'muy nuboso'}),
         ]),
       }),
     );

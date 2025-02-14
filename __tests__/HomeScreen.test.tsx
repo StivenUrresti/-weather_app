@@ -37,6 +37,7 @@ describe('HomeScreen', () => {
         weather: [{description: 'Despejado', icon: '01d'}],
         wind: {speed: 3, deg: 120},
         sys: {country: 'CO'},
+        clouds: {all: 50},
       },
       loading: false,
       erroMessage: null,
