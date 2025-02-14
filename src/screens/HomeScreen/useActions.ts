@@ -31,10 +31,16 @@ export const useActions = () => {
     try {
       const data = await getWeatherByCity(city);
       setWeatherData(data);
-      setLoading(false);
       setErroMessage('');
     } catch (error) {
-      setErroMessage('No se encontraron datos para la ciudad ingresada');
+      const errorMessage = (error as Error).message;
+
+      if (errorMessage === 'Ciudad no encontrada. Verifica el nombre.') {
+        setErroMessage('No se encontraron datos para la ciudad ingresada');
+      } else {
+        setErroMessage('Ocurrió un error inesperado');
+      }
+    } finally {
       setLoading(false);
     }
   };

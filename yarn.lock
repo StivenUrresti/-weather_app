@@ -2540,10 +2540,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/react@npm:*, @testing-library/react@npm:^16.2.0":
+  version: 16.2.0
+  resolution: "@testing-library/react@npm:16.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.12.5"
+  peerDependencies:
+    "@testing-library/dom": ^10.0.0
+    "@types/react": ^18.0.0 || ^19.0.0
+    "@types/react-dom": ^18.0.0 || ^19.0.0
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 10c0/7adaedaf237002b42e04a6261d2756074a19cbca0f0c79ba375660f618e123c0ee56256ced00aeb0bb7225ba1a8a81b92b692cca053521a21bb92a8cace1e4c6
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: 10c0/073bfa548026b1ebaf1659eb8961e526be22fa77139b10d60e712f46d2f0f05f4e6c8bec62a087d41088ee9e29faa7f54838568e475ab2f776171003c3920858
+  languageName: node
+  linkType: hard
+
+"@types/axios-mock-adapter@npm:^1.10.4":
+  version: 1.10.4
+  resolution: "@types/axios-mock-adapter@npm:1.10.4"
+  dependencies:
+    axios-mock-adapter: "npm:*"
+  checksum: 10c0/f42dac9a9bfffbe498809f8204523d284f0b81a82e050b7d104ab89d668879af41a46ab117d27c3546f7b750934595e3578cc5494779923be5d9c828bf060417
   languageName: node
   linkType: hard
 
@@ -2719,6 +2748,15 @@ __metadata:
   version: 2.0.3
   resolution: "@types/stack-utils@npm:2.0.3"
   checksum: 10c0/1f4658385ae936330581bcb8aa3a066df03867d90281cdf89cc356d404bd6579be0f11902304e1f775d92df22c6dd761d4451c804b0a4fba973e06211e9bd77c
+  languageName: node
+  linkType: hard
+
+"@types/testing-library__react@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "@types/testing-library__react@npm:10.2.0"
+  dependencies:
+    "@testing-library/react": "npm:*"
+  checksum: 10c0/1246ec65e8757df1c0d9ec7f1ab28b5e274c6a2f5b79e218363a7a39417e906e7648704713b925b037feb4a7048847466e6ffdd2a4c40a842e3f98cab779347f
   languageName: node
   linkType: hard
 
@@ -3316,6 +3354,18 @@ __metadata:
   dependencies:
     possible-typed-array-names: "npm:^1.0.0"
   checksum: 10c0/d07226ef4f87daa01bd0fe80f8f310982e345f372926da2e5296aecc25c41cab440916bbaa4c5e1034b453af3392f67df5961124e4b586df1e99793a1374bdb2
+  languageName: node
+  linkType: hard
+
+"axios-mock-adapter@npm:*":
+  version: 2.1.0
+  resolution: "axios-mock-adapter@npm:2.1.0"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+    is-buffer: "npm:^2.0.5"
+  peerDependencies:
+    axios: ">= 0.17.0"
+  checksum: 10c0/37ebd88940245f4e027578734613417f024d06e2279edb1a188ccdf685a15ab4fdfbac7cfe681731722a1ba6c0a5ec15ef0145f79a53687181e4aacbe45e1730
   languageName: node
   linkType: hard
 
@@ -5992,6 +6042,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-buffer@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "is-buffer@npm:2.0.5"
+  checksum: 10c0/e603f6fced83cf94c53399cff3bda1a9f08e391b872b64a73793b0928be3e5f047f2bcece230edb7632eaea2acdbfcb56c23b33d8a20c820023b230f1485679a
+  languageName: node
+  linkType: hard
+
 "is-callable@npm:^1.2.7":
   version: 1.2.7
   resolution: "is-callable@npm:1.2.7"
@@ -6642,6 +6699,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-mock-axios@npm:^4.8.0":
+  version: 4.8.0
+  resolution: "jest-mock-axios@npm:4.8.0"
+  dependencies:
+    "@jest/globals": "npm:^29.7.0"
+    jest: "npm:~29.7.0"
+    synchronous-promise: "npm:^2.0.17"
+  checksum: 10c0/a76ccf8d45c08dc237288e2cc7f1ed31e6f61633188e63b17a70ead9a116ef33c2d7204dbd270ae03ec2392f6a87952e80f8decb8e38f8647832c3f64ee709e3
+  languageName: node
+  linkType: hard
+
 "jest-mock@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-mock@npm:29.7.0"
@@ -6842,7 +6910,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^29.7.0":
+"jest@npm:^29.7.0, jest@npm:~29.7.0":
   version: 29.7.0
   resolution: "jest@npm:29.7.0"
   dependencies:
@@ -9830,6 +9898,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"synchronous-promise@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "synchronous-promise@npm:2.0.17"
+  checksum: 10c0/1babe643d8417789ef6e5a2f3d4b8abcda2de236acd09bbe2c98f6be82c0a2c92ed21a6e4f934845fa8de18b1435a9cba1e8c3d945032e8a532f076224c024b1
+  languageName: node
+  linkType: hard
+
 "tar@npm:^7.4.3":
   version: 7.4.3
   resolution: "tar@npm:7.4.3"
@@ -10380,12 +10455,15 @@ __metadata:
     "@react-native/metro-config": "npm:0.77.1"
     "@react-native/typescript-config": "npm:0.77.1"
     "@testing-library/jest-native": "npm:^5.4.3"
+    "@testing-library/react": "npm:^16.2.0"
     "@testing-library/react-hooks": "npm:^8.0.1"
     "@testing-library/react-native": "npm:^13.0.1"
+    "@types/axios-mock-adapter": "npm:^1.10.4"
     "@types/jest": "npm:^29.5.13"
     "@types/lodash": "npm:^4"
     "@types/react": "npm:^18.2.6"
     "@types/react-test-renderer": "npm:^18.0.0"
+    "@types/testing-library__react": "npm:^10.2.0"
     axios: "npm:^1.7.9"
     babel-jest: "npm:^29.7.0"
     babel-plugin-module-resolver: "npm:^5.0.2"
@@ -10393,6 +10471,7 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     jest-fetch-mock: "npm:^3.0.3"
+    jest-mock-axios: "npm:^4.8.0"
     lodash: "npm:^4.17.21"
     prettier: "npm:2.8.8"
     react: "npm:18.3.1"
