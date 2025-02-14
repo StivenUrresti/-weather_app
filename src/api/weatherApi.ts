@@ -14,7 +14,7 @@ const api = axios.create({
 export const getWeatherByCity = async (city: string) => {
   try {
     const response = await api.get<WeatherResponse>('/', {
-      params: {q: city},
+      params: {q: city, lang: 'es'},
     });
     return response.data;
   } catch (error) {
